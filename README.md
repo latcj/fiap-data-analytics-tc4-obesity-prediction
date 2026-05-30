@@ -14,15 +14,15 @@ Vídeo:
 https://...
 
 ## Objetivo
-Desenvolver um modelo de Machine Learning capaz de prever níveis de obesidade.
+Desenvolver um modelo de Machine Learning capaz de prever níveis de obesidade com base em um questionario de perguntas fechadas.
 
 ## Tecnologias
 - Python
 - Pandas
 - Scikit-Learn
-- XGBoost
+- Random Forest
 - Streamlit
 - Power BI
 
 ## Resultados
-Accuracy: 95%
+Accuracy: 85%
