@@ -2,6 +2,9 @@
 
 streamlit run app.py
 
+## Objetivo
+Desenvolver um modelo de Machine Learning capaz de prever níveis de obesidade com base em um questionario de perguntas fechadas.
+
 ## Links
 
 Aplicação Streamlit:
@@ -12,9 +15,6 @@ https://...
 
 Vídeo:
 https://...
-
-## Objetivo
-Desenvolver um modelo de Machine Learning capaz de prever níveis de obesidade com base em um questionario de perguntas fechadas.
 
 ## Tecnologias
 - Python
