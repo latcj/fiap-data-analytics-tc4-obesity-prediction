@@ -4,7 +4,7 @@
 
 Desenvolver um modelo de Machine Learning capaz de prever níveis de obesidade com base em características demográficas, hábitos alimentares e estilo de vida, auxiliando profissionais da saúde no processo de tomada de decisão.
 
-## Tecnologias Utilizadas
+## Tecnologias utilizadas
 
 * Python
 * Pandas
@@ -14,7 +14,7 @@ Desenvolver um modelo de Machine Learning capaz de prever níveis de obesidade c
 * Streamlit
 * Power BI
 
-## Estrutura do Projeto
+## Estrutura do projeto
 
 ```text
 ├── data/
@@ -37,7 +37,7 @@ Desenvolver um modelo de Machine Learning capaz de prever níveis de obesidade c
 └── README.md
 ```
 
-## Execução Local
+## Execução local
 
 Instale as dependências:
 
@@ -63,16 +63,15 @@ streamlit run app.py
 
 https://...
 
-### Dashboard Analítico
+### Dashboard analítico
 
 https://...
 
-### Vídeo de Apresentação
+### Vídeo de apresentação
 
 https://...
 
 ## Autor
 
 Luiz Carvalho
-
 Pós-graduação em Data Analytics – FIAP
