@@ -1,28 +1,78 @@
 # Tech Challenge 4 - Obesity Prediction
 
-streamlit run app.py
-
 ## Objetivo
-Desenvolver um modelo de Machine Learning capaz de prever níveis de obesidade com base em um questionario de perguntas fechadas.
+
+Desenvolver um modelo de Machine Learning capaz de prever níveis de obesidade com base em características demográficas, hábitos alimentares e estilo de vida, auxiliando profissionais da saúde no processo de tomada de decisão.
+
+## Tecnologias Utilizadas
+
+* Python
+* Pandas
+* NumPy
+* Scikit-Learn
+* Random Forest
+* Streamlit
+* Power BI
+
+## Estrutura do Projeto
+
+```text
+├── data/
+│   └── Obesity.csv
+│
+├── notebooks/
+│   ├── 01_eda.ipynb
+│   └── 03_model_training.ipynb
+│
+├── model/
+│   └── obesity_model.pkl
+│
+├── streamlit/
+│   └── app.py
+│
+├── dashboard/
+│   └── dashboard.pbix
+│
+├── requirements.txt
+└── README.md
+```
+
+## Execução Local
+
+Instale as dependências:
+
+```bash
+pip install -r requirements.txt
+```
+
+Execute a aplicação:
+
+```bash
+streamlit run app.py
+```
+
+## Resultados
+
+* Modelo selecionado: Random Forest
+* Accuracy: 85%
+* Avaliação realizada utilizando conjunto de teste separado do treinamento.
 
 ## Links
 
-Aplicação Streamlit:
+### Aplicação Streamlit
+
 https://...
 
-Dashboard:
+### Dashboard Analítico
+
 https://...
 
-Vídeo:
+### Vídeo de Apresentação
+
 https://...
 
-## Tecnologias
-- Python
-- Pandas
-- Scikit-Learn
-- Random Forest
-- Streamlit
-- Power BI
+## Autor
 
-## Resultados
-Accuracy: 85%
+Luiz Carvalho
+
+Pós-graduação em Data Analytics – FIAP
