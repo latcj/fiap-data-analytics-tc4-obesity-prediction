@@ -1,5 +1,7 @@
 # Tech Challenge 4 - Obesity Prediction
 
+streamlit run app.py
+
 ## Links
 
 Aplicação Streamlit:
