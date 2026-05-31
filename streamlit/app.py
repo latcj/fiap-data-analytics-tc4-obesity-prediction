@@ -11,6 +11,7 @@ from pathlib import Path
 import streamlit as st
 import pandas as pd
 import joblib
+import streamlit.components.v1 as components
 
 
 # ## Configuração da página
@@ -274,6 +275,23 @@ if prediction is not None:
             label="Confidence",
             value=f"{confidence:.2f}%"
         )
+
+    st.divider()
+
+    st.header("📊 Obesity Analytics Dashboard")
+    components.html(
+        """
+        <iframe
+            title="FIAP - Obesity Analysis - TC4"
+            width="100%"
+            height="800"
+            src="https://app.powerbi.com/view?r=eyJrIjoiNzVmYjJmYTMtYjdkNi00ZWM4LWIyM2ItYTY5NDdiNjkwNWU4IiwidCI6Ijc2MmU1ODhmLTMxOTgtNGUzYS04Y2VkLWM1MTZjZGU3ZTg1NiJ9"
+            frameborder="0"
+            allowfullscreen="true">
+        </iframe>
+        """,
+        height=850
+    )
     else:
         st.info("O modelo não fornece probabilidades. A previsão foi exibida acima.")
 
@@ -283,10 +301,7 @@ if prediction is not None:
 # ## Rodapé
 
 # In[26]:
-
-
 st.divider()
-
 st.caption(
     "FIAP Tech Challenge 4 - Obesity Prediction"
 )
