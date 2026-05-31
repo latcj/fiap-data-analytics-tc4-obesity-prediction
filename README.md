@@ -24,10 +24,8 @@ Desenvolver um modelo de Machine Learning capaz de prever níveis de obesidade c
 │   ├── 01_eda.ipynb
 │   └── 03_model_training.ipynb
 │
-├── model/
-│   └── obesity_model.pkl
-│
 ├── streamlit/
+│   ├── obesity_model.pkl
 │   └── app.py
 │
 ├── dashboard/
