@@ -292,8 +292,8 @@ if prediction is not None:
         """,
         height=850
     )
-    else:
-        st.info("O modelo não fornece probabilidades. A previsão foi exibida acima.")
+else:
+    st.info("O modelo não fornece probabilidades. A previsão foi exibida acima.")
 
 
 
