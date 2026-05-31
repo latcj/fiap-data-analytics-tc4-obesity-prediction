@@ -54,8 +54,7 @@ if model is None:
 st.title("🏥 Obesity Prediction System")
 
 st.markdown("""
-Sistema preditivo para auxiliar a equipe médica
-na identificação de níveis de obesidade.
+Predictive system to assist the medical team in identifying obesity levels.
 """)
 
 
@@ -104,9 +103,9 @@ with col1:
 with col2:
     fcvc = st.slider(
         "Vegetable Consumption",
-        min_value=1.0,
-        max_value=3.0,
-        value=2.0
+        min_value=1,
+        max_value=3,
+        value=2
     )
 
 with col3:
