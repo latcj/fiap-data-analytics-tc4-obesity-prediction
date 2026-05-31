@@ -52,7 +52,7 @@ streamlit run streamlit/app.py
 ## Resultados
 
 * Modelo selecionado: Random Forest
-* Accuracy: 85%
+* Accuracy: 79%
 * Avaliação realizada utilizando conjunto de teste separado do treinamento.
 
 ## Links
