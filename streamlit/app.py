@@ -111,9 +111,9 @@ with col2:
 with col3:
     ncp = st.slider(
         "Main Meals Per Day",
-        min_value=1.0,
-        max_value=4.0,
-        value=3.0
+        min_value=1,
+        max_value=4,
+        value=3
     )
 
 
@@ -139,9 +139,9 @@ with col2:
 with col3:
     ch2o = st.slider(
         "Water Consumption",
-        min_value=1.0,
-        max_value=3.0,
-        value=2.0
+        min_value=1,
+        max_value=3,
+        value=2
     )
 
 
@@ -161,17 +161,17 @@ with col1:
 with col2:
     faf = st.slider(
         "Physical Activity",
-        min_value=0.0,
-        max_value=3.0,
-        value=1.0
+        min_value=0,
+        max_value=3,
+        value=1
     )
 
 with col3:
     tue = st.slider(
         "Technology Usage",
-        min_value=0.0,
-        max_value=2.0,
-        value=1.0
+        min_value=0,
+        max_value=2,
+        value=1
     )
 
 
@@ -238,14 +238,38 @@ if model is not None and st.button("Predict Obesity Level"):
     except AttributeError:
         probabilities = None
 
-    if probabilities is not None:
-        st.subheader("Prediction Confidence")
-        classes = model.classes_
-        prob_df = pd.DataFrame({
-            "Class": classes,
-            "Probability": probabilities
-        })
-        st.dataframe(prob_df)
+if probabilities is not None:
+
+    class_mapping = {
+        0: "Insufficient Weight",
+        1: "Normal Weight",
+        2: "Overweight Level I",
+        3: "Overweight Level II",
+        4: "Obesity Type I",
+        5: "Obesity Type II",
+        6: "Obesity Type III"
+    }
+
+    max_idx = probabilities.argmax()
+
+    predicted_class = class_mapping.get(
+        model.classes_[max_idx],
+        model.classes_[max_idx]
+    )
+
+    confidence = probabilities[max_idx] * 100
+
+    st.subheader("Prediction Confidence")
+
+    st.metric(
+        label="Predicted Class",
+        value=predicted_class
+    )
+
+    st.metric(
+        label="Confidence",
+        value=f"{confidence:.2f}%"
+    )
     else:
         st.info("O modelo não fornece probabilidades. A previsão foi exibida acima.")
 
