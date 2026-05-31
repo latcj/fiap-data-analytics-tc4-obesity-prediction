@@ -52,18 +52,18 @@ streamlit run streamlit/app.py
 ## Resultados
 
 * Modelo selecionado: Random Forest
-* Accuracy: 85%
+* Accuracy: 79%
 * Avaliação realizada utilizando conjunto de teste separado do treinamento.
 
 ## Links
 
 ### Aplicação Streamlit
 
-https://...
+[https://...](https://fiap-data-analytics-tc4-obesity-prediction-fdeaegtjfddkuydpkd6.streamlit.app/)
 
 ### Dashboard analítico
 
-https://...
+[https://...](https://app.powerbi.com/view?r=eyJrIjoiNzVmYjJmYTMtYjdkNi00ZWM4LWIyM2ItYTY5NDdiNjkwNWU4IiwidCI6Ijc2MmU1ODhmLTMxOTgtNGUzYS04Y2VkLWM1MTZjZGU3ZTg1NiJ9)
 
 ### Vídeo de apresentação
 

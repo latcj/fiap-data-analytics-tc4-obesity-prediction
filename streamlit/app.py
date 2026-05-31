@@ -11,6 +11,7 @@ from pathlib import Path
 import streamlit as st
 import pandas as pd
 import joblib
+import streamlit.components.v1 as components
 
 
 # ## Configuração da página
@@ -54,8 +55,7 @@ if model is None:
 st.title("🏥 Obesity Prediction System")
 
 st.markdown("""
-Sistema preditivo para auxiliar a equipe médica
-na identificação de níveis de obesidade.
+Predictive system to assist the medical team in identifying obesity levels.
 """)
 
 
@@ -104,17 +104,17 @@ with col1:
 with col2:
     fcvc = st.slider(
         "Vegetable Consumption",
-        min_value=1.0,
-        max_value=3.0,
-        value=2.0
+        min_value=1,
+        max_value=3,
+        value=2
     )
 
 with col3:
     ncp = st.slider(
         "Main Meals Per Day",
-        min_value=1.0,
-        max_value=4.0,
-        value=3.0
+        min_value=1,
+        max_value=4,
+        value=3
     )
 
 
@@ -140,9 +140,9 @@ with col2:
 with col3:
     ch2o = st.slider(
         "Water Consumption",
-        min_value=1.0,
-        max_value=3.0,
-        value=2.0
+        min_value=1,
+        max_value=3,
+        value=2
     )
 
 
@@ -162,17 +162,17 @@ with col1:
 with col2:
     faf = st.slider(
         "Physical Activity",
-        min_value=0.0,
-        max_value=3.0,
-        value=1.0
+        min_value=0,
+        max_value=3,
+        value=1
     )
 
 with col3:
     tue = st.slider(
         "Technology Usage",
-        min_value=0.0,
-        max_value=2.0,
-        value=1.0
+        min_value=0,
+        max_value=2,
+        value=1
     )
 
 
@@ -229,6 +229,9 @@ input_data = pd.DataFrame({
 
 # In[22]:
 
+prediction = None
+probabilities = None
+
 if model is not None and st.button("Predict Obesity Level"):
 
     prediction = model.predict(input_data)[0]
@@ -239,16 +242,58 @@ if model is not None and st.button("Predict Obesity Level"):
     except AttributeError:
         probabilities = None
 
+if prediction is not None:
+
     if probabilities is not None:
+        class_mapping = {
+            0: "Insufficient Weight",
+            1: "Normal Weight",
+            2: "Overweight Level I",
+            3: "Overweight Level II",
+            4: "Obesity Type I",
+            5: "Obesity Type II",
+            6: "Obesity Type III"
+        }
+
+        max_idx = probabilities.argmax()
+
+        predicted_class = class_mapping.get(
+            model.classes_[max_idx],
+            model.classes_[max_idx]
+        )
+
+        confidence = probabilities[max_idx] * 100
+
         st.subheader("Prediction Confidence")
-        classes = model.classes_
-        prob_df = pd.DataFrame({
-            "Class": classes,
-            "Probability": probabilities
-        })
-        st.dataframe(prob_df)
-    else:
-        st.info("O modelo não fornece probabilidades. A previsão foi exibida acima.")
+
+        st.metric(
+            label="Predicted Class",
+            value=predicted_class
+        )
+
+        st.metric(
+            label="Confidence",
+            value=f"{confidence:.2f}%"
+        )
+
+    st.divider()
+
+    st.header("📊 Obesity Analytics Dashboard")
+    components.html(
+        """
+        <iframe
+            title="FIAP - Obesity Analysis - TC4"
+            width="100%"
+            height="800"
+            src="https://app.powerbi.com/view?r=eyJrIjoiNzVmYjJmYTMtYjdkNi00ZWM4LWIyM2ItYTY5NDdiNjkwNWU4IiwidCI6Ijc2MmU1ODhmLTMxOTgtNGUzYS04Y2VkLWM1MTZjZGU3ZTg1NiJ9"
+            frameborder="0"
+            allowfullscreen="true">
+        </iframe>
+        """,
+        height=850
+    )
+else:
+    st.info("O modelo não fornece probabilidades. A previsão foi exibida acima.")
 
 
 
@@ -256,10 +301,7 @@ if model is not None and st.button("Predict Obesity Level"):
 # ## Rodapé
 
 # In[26]:
-
-
 st.divider()
-
 st.caption(
     "FIAP Tech Challenge 4 - Obesity Prediction"
 )
