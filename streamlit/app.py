@@ -6,6 +6,8 @@
 # In[2]:
 
 
+from pathlib import Path
+
 import streamlit as st
 import pandas as pd
 import joblib
@@ -28,9 +30,16 @@ st.set_page_config(
 # In[6]:
 
 
+MODEL_PATH = Path(__file__).resolve().parent / "obesity_model.pkl"
+
 @st.cache_resource
 def load_model():
-    return joblib.load("obesity_model.pkl")
+    try:
+        return joblib.load(MODEL_PATH)
+    except Exception as exc:
+        st.error("Falha ao carregar o modelo. Verifique se a dependência scikit-learn está na versão 1.5.1 e execute novamente.")
+        st.exception(exc)
+        return None
 
 model = load_model()
 
@@ -218,14 +227,26 @@ input_data = pd.DataFrame({
 
 # In[22]:
 
-
-if st.button("Predict Obesity Level"):
+if model is not None and st.button("Predict Obesity Level"):
 
     prediction = model.predict(input_data)[0]
+    st.success(f"Predicted Obesity Level: {prediction}")
 
-    st.success(
-        f"Predicted Obesity Level: {prediction}"
-    )
+    try:
+        probabilities = model.predict_proba(input_data)[0]
+    except AttributeError:
+        probabilities = None
+
+    if probabilities is not None:
+        st.subheader("Prediction Confidence")
+        classes = model.classes_
+        prob_df = pd.DataFrame({
+            "Class": classes,
+            "Probability": probabilities
+        })
+        st.dataframe(prob_df)
+    else:
+        st.info("O modelo não fornece probabilidades. A previsão foi exibida acima.")
 
 
 # ## Probabilidades
