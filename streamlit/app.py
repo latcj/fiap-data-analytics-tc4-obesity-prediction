@@ -270,8 +270,9 @@ if probabilities is not None:
         label="Confidence",
         value=f"{confidence:.2f}%"
     )
-    else:
-        st.info("O modelo não fornece probabilidades. A previsão foi exibida acima.")
+    
+else:
+    st.info("O modelo não fornece probabilidades. A previsão foi exibida acima.")
 
 
 
