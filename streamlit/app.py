@@ -42,6 +42,8 @@ def load_model():
         return None
 
 model = load_model()
+if model is None:
+    st.stop()
 
 
 # ## Título
@@ -249,31 +251,6 @@ if model is not None and st.button("Predict Obesity Level"):
         st.info("O modelo não fornece probabilidades. A previsão foi exibida acima.")
 
 
-# ## Probabilidades
-
-# In[24]:
-
-
-if st.button("Predict Obesity Level"):
-
-    prediction = model.predict(input_data)[0]
-
-    probabilities = model.predict_proba(input_data)[0]
-
-    st.success(
-        f"Predicted Obesity Level: {prediction}"
-    )
-
-    st.subheader("Prediction Confidence")
-
-    classes = model.classes_
-
-    prob_df = pd.DataFrame({
-        "Class": classes,
-        "Probability": probabilities
-    })
-
-    st.dataframe(prob_df)
 
 
 # ## Rodapé
