@@ -63,7 +63,7 @@ streamlit run streamlit/app.py
 
 ### Dashboard analítico
 
-https://...
+[https://...](https://app.powerbi.com/view?r=eyJrIjoiNzVmYjJmYTMtYjdkNi00ZWM4LWIyM2ItYTY5NDdiNjkwNWU4IiwidCI6Ijc2MmU1ODhmLTMxOTgtNGUzYS04Y2VkLWM1MTZjZGU3ZTg1NiJ9)
 
 ### Vídeo de apresentação
 
