@@ -59,7 +59,7 @@ streamlit run streamlit/app.py
 
 ### Aplicação Streamlit
 
-https://...
+[https://...](https://fiap-data-analytics-tc4-obesity-prediction-fdeaegtjfddkuydpkd6.streamlit.app/)
 
 ### Dashboard analítico
 
