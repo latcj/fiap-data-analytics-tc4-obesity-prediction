@@ -228,6 +228,9 @@ input_data = pd.DataFrame({
 
 # In[22]:
 
+prediction = None
+probabilities = None
+
 if model is not None and st.button("Predict Obesity Level"):
 
     prediction = model.predict(input_data)[0]
@@ -238,41 +241,41 @@ if model is not None and st.button("Predict Obesity Level"):
     except AttributeError:
         probabilities = None
 
-if probabilities is not None:
+if prediction is not None:
 
-    class_mapping = {
-        0: "Insufficient Weight",
-        1: "Normal Weight",
-        2: "Overweight Level I",
-        3: "Overweight Level II",
-        4: "Obesity Type I",
-        5: "Obesity Type II",
-        6: "Obesity Type III"
-    }
+    if probabilities is not None:
+        class_mapping = {
+            0: "Insufficient Weight",
+            1: "Normal Weight",
+            2: "Overweight Level I",
+            3: "Overweight Level II",
+            4: "Obesity Type I",
+            5: "Obesity Type II",
+            6: "Obesity Type III"
+        }
 
-    max_idx = probabilities.argmax()
+        max_idx = probabilities.argmax()
 
-    predicted_class = class_mapping.get(
-        model.classes_[max_idx],
-        model.classes_[max_idx]
-    )
+        predicted_class = class_mapping.get(
+            model.classes_[max_idx],
+            model.classes_[max_idx]
+        )
 
-    confidence = probabilities[max_idx] * 100
+        confidence = probabilities[max_idx] * 100
 
-    st.subheader("Prediction Confidence")
+        st.subheader("Prediction Confidence")
 
-    st.metric(
-        label="Predicted Class",
-        value=predicted_class
-    )
+        st.metric(
+            label="Predicted Class",
+            value=predicted_class
+        )
 
-    st.metric(
-        label="Confidence",
-        value=f"{confidence:.2f}%"
-    )
-    
-else:
-    st.info("O modelo não fornece probabilidades. A previsão foi exibida acima.")
+        st.metric(
+            label="Confidence",
+            value=f"{confidence:.2f}%"
+        )
+    else:
+        st.info("O modelo não fornece probabilidades. A previsão foi exibida acima.")
 
 
 
