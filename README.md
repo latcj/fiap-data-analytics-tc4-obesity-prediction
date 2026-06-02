@@ -67,7 +67,7 @@ streamlit run streamlit/app.py
 
 ### Vídeo de apresentação
 
-https://...
+[https://...](https://www.youtube.com/watch?v=4z3HHzEyyTU)
 
 ## Autor
 
