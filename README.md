@@ -58,16 +58,13 @@ streamlit run streamlit/app.py
 ## Links
 
 ### Aplicação Streamlit
-
-(https://fiap-data-analytics-tc4-obesity-prediction-fdeaegtjfddkuydpkd6.streamlit.app/)
+[Link](https://fiap-data-analytics-tc4-obesity-prediction-fdeaegtjfddkuydpkd6.streamlit.app/)
 
 ### Dashboard analítico
-
-(https://app.powerbi.com/view?r=eyJrIjoiNzVmYjJmYTMtYjdkNi00ZWM4LWIyM2ItYTY5NDdiNjkwNWU4IiwidCI6Ijc2MmU1ODhmLTMxOTgtNGUzYS04Y2VkLWM1MTZjZGU3ZTg1NiJ9)
+[Link](https://app.powerbi.com/view?r=eyJrIjoiNzVmYjJmYTMtYjdkNi00ZWM4LWIyM2ItYTY5NDdiNjkwNWU4IiwidCI6Ijc2MmU1ODhmLTMxOTgtNGUzYS04Y2VkLWM1MTZjZGU3ZTg1NiJ9)
 
 ### Vídeo de apresentação
-
-(https://www.youtube.com/watch?v=4z3HHzEyyTU)
+[Link](https://www.youtube.com/watch?v=4z3HHzEyyTU)
 
 ## Autor
 
